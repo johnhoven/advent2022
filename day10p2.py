@@ -83,11 +83,12 @@ def day10p2(file):
             #     output.append(buffer)
             #     buffer = ""
 
-    for o in output:
-        print(o)
+    result = "\n".join(output)
+
+    print(result)
+
+    return result
 
 
 if __name__ == '__main__':
-    day10p2("day10asample.txt")
-    print()
     day10p2("day10input.txt")
