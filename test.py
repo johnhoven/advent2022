@@ -8,6 +8,8 @@ from day4p1 import day4p1
 from day4p2 import day4p2
 from day5p1 import day5p1
 from day5p2 import day5p2
+from day6p1 import day6p1
+from day6p2 import day6p2
 import unittest
 
 
@@ -41,6 +43,36 @@ class Advent2022Tests(unittest.TestCase):
 
     def test_day5_part2(self):
         self.assertEqual(day5p2("day5asample.txt"), "MCD")
+
+    def test_day6_part1_a(self):
+        self.assertEqual(day6p1("day6asample.txt"), 7)
+
+    def test_day6_part1_b(self):
+        self.assertEqual(day6p1("day6bsample.txt"), 5)
+
+    def test_day6_part1_c(self):
+        self.assertEqual(day6p1("day6csample.txt"), 6)
+
+    def test_day6_part1_d(self):
+        self.assertEqual(day6p1("day6dsample.txt"), 10)
+
+    def test_day6_part1_e(self):
+        self.assertEqual(day6p1("day6esample.txt"), 11)
+
+    def test_day6_part2_a(self):
+        self.assertEqual(day6p2("day6asample.txt"), 19)
+
+    def test_day6_part2_b(self):
+        self.assertEqual(day6p2("day6bsample.txt"), 23)
+
+    def test_day6_part2_c(self):
+        self.assertEqual(day6p2("day6csample.txt"), 23)
+
+    def test_day6_part2_d(self):
+        self.assertEqual(day6p2("day6dsample.txt"), 29)
+
+    def test_day6_part2_e(self):
+        self.assertEqual(day6p2("day6esample.txt"), 26)
 
 
 if __name__ == '__main__':
