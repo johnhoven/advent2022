@@ -7,7 +7,7 @@ class monkey():
         self.fmonk = fmonk
         self.inspected = 0
 
-    def takeTurn(self, monkeys):
+    def takeTurn(self, monkeys, manage):
 
         for i in range(self.items.__len__()):
             item = self.items.pop(0)
@@ -15,7 +15,9 @@ class monkey():
             # monkey inspects
             item = self.operation(item)
             # didn't break, become less worried
-            item = int(item / 3)
+            # item = int(item / 3)
+
+            item = item % manage
 
             if item % self.test == 0:
                 monkeys[self.tmonk].items.append(item)
@@ -23,12 +25,24 @@ class monkey():
                 monkeys[self.fmonk].items.append(item)
 
 
-def performRound(monkeys):
+def performRound(monkeys, manage):
     for monkey in monkeys:
-        monkey.takeTurn(monkeys)
+        monkey.takeTurn(monkeys, manage)
+
+# operation = * 2
+# div by 5
+
+# 7 * 2 = 14
+# * 2 = 28 / 5 = mod 3
+# * 2 = 56 / 5 = mod 1
+
+# divide by 5 each round
+# 7 * 2 = 14 % 5 = 4
+#  * 2 = 8 % 5 = 3
+# * 2 = 6 % 5 = 1
 
 
-def day11p1(file):
+def day11p2(file):
 
     monkeys = []
 
@@ -119,8 +133,19 @@ def day11p1(file):
             1
         ))
 
-    for i in range(20):
-        performRound(monkeys)
+    # "Manage Stress" by the product of all test values,
+    # which will have no mathematical difference on the
+    # modulus tests
+    listTests = list(map(lambda monkey: monkey.test, monkeys))
+    listAmount = 0
+    for listTest in listTests:
+        if listAmount == 0:
+            listAmount = listTest
+        else:
+            listAmount = listAmount * listTest
+
+    for i in range(10000):
+        performRound(monkeys, listAmount)
 
     result = list(map(lambda monkey: monkey.inspected, monkeys))
     result.sort()
@@ -132,4 +157,4 @@ def day11p1(file):
 
 
 if __name__ == '__main__':
-    day11p1("day11input.txt")
+    day11p2("day11input.txt")
