@@ -1,5 +1,3 @@
-# basic algorithm: start at end and cycle around spreading cost
-
 class table():
     def __init__(self):
         self.data = ""
@@ -131,10 +129,19 @@ class table():
                 buffer = buffer + 'X'
             else:
                 buffer = buffer + ' '
-        print(buffer)
+        # print(buffer)
+
+    def findShortestA(self):
+        result = 9999
+        for i in range(self.data.__len__()):
+            x = self.data[i]
+            if (x == 'S' or x == 'a') and i in self.explored.keys():
+                if self.explored[i] < result:
+                    result = self.explored[i]
+        return result
 
 
-def day12p1(file):
+def day12p2(file):
 
     data = table()
 
@@ -146,13 +153,15 @@ def day12p1(file):
 
     ex, ey = data.findEnd()
     data.runAdventure(ex, ey)
-    result = data.findStartCost()
+    #result = data.findStartCost()
 
-    data.printGrid()
+    # data.printGrid()
+
+    result = data.findShortestA()
 
     print(result - 1)
     return result - 1
 
 
 if __name__ == '__main__':
-    day12p1("day12input.txt")
+    day12p2("day12input.txt")
