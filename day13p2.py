@@ -127,6 +127,8 @@ def day13p2(file):
                 newPair = pair(line)
                 pairs.append(newPair)
 
+    # no reason to sort the whole list, just these two
+    # O(2n)
     index1 = 1
     index2 = 2
     for p in pairs:
