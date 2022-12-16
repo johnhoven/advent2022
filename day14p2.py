@@ -28,18 +28,18 @@ def dropSand(map, x, y, maxy):
     if present and y == 0:
         return False
 
-    if present and y < maxy:
+    # if present and y < maxy:
 
-        leftx = x - 1
-        if not str(leftx) + "," + str(y + 1) in map.keys():
-            return dropSand(map, leftx, y + 1, maxy)
-        else:
-            rightx = x + 1
-            if not str(rightx) + "," + str(y + 1) in map.keys():
-                return dropSand(map, rightx, y + 1, maxy)
+    #     leftx = x - 1
+    #     if not str(leftx) + "," + str(y + 1) in map.keys():
+    #         return dropSand(map, leftx, y + 1, maxy)
+    #     else:
+    #         rightx = x + 1
+    #         if not str(rightx) + "," + str(y + 1) in map.keys():
+    #             return dropSand(map, rightx, y + 1, maxy)
 
-        # can't land here, or drop left, right
-        return False
+    #     # can't land here, or drop left, right
+    #     return False
 
     # elif y < maxy:
     #    return dropSand(map, x, y + 1, maxy)
