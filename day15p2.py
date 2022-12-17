@@ -1,8 +1,10 @@
 # I think this brute force will work, but to try for a better processing time:
-# keep a list of cubes
+# keep a list of cubes (point being cubes will be much less memory intensive than having to track the fill of 4M lines and constantly merging/extending the cubes from stop explosive memory growth)
 # break each scanner into a list of cubes
 # merge cubes into existing cubes (extending as necessary)
 # eventually left with 4 or less cubes and can find remaining point
+
+# This solution is very wasteful on CPU to avoid needing much memory (only stores current row)
 
 class links():
     def __init__(self, start, end, next):
