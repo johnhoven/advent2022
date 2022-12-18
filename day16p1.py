@@ -1,23 +1,9 @@
 
-class node():
-
-    def __init__(self, flowRate):
-        self.paths = {}
-        self.rate = flowRate
-        self.open = False
-
-    def addPath(self, node):
-        self.paths[node] = True
-
-    def setRate(self, rate):
-        self.rate = rate
-
 
 def day16p1(file):
 
     TARGET_TIME = 30
 
-    allNodes = {}
     edges = []
     vertices = []
     usefulVertices = []
@@ -34,28 +20,12 @@ def day16p1(file):
             vertices.append(valve)
             flowRateDict[valve] = rate
 
-            valveNode = None
-            if valve in allNodes.keys():
-                valveNode = allNodes[valve]
-                valveNode.setRate(rate)
-            else:
-                valveNode = node(rate)
-                allNodes[valve] = valveNode
-
             if rate > 0:
                 usefulVertices.append(valve)
 
             for i in range(9, splits.__len__()):
                 leadsTo = splits[i].split(',')[0]
-                leadsToNode = None
                 edges.append((valve, leadsTo))
-
-                if leadsTo in allNodes.keys():
-                    leadsToNode = allNodes[leadsTo]
-                else:
-                    leadsToNode = node(0)
-                    allNodes[leadsTo] = leadsToNode
-                valveNode.addPath(leadsToNode)
 
     # let dist be a | V | × |V | array of minimum distances initialized to ∞ (infinity)
 
