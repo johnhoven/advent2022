@@ -29,6 +29,7 @@ from day14p2 import day14p2
 from day15p1 import day15p1
 from day15p2 import day15p2
 from day16p1 import day16p1
+from day16p2 import day16p2
 import unittest
 
 
@@ -158,8 +159,11 @@ class Advent2022Tests(unittest.TestCase):
     def test_day15_part2(self):
         self.assertEqual(day15p2("day15asample.txt", 20), 56000011)
 
-    def test_day16_parta(self):
+    def test_day16_part1(self):
         self.assertEqual(day16p1("day16asample.txt"), 1651)
+
+    def test_day16_part2(self):
+        self.assertEqual(day16p2("day16asample.txt"), 1707)
 
 
 if __name__ == '__main__':
