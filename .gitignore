@@ -1,2 +1,4 @@
 __pycache__/*
 __pycache__/day1atest.cpython-311.pyc
+*.txt
+test.py
